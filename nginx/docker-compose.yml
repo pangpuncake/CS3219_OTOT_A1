@@ -1,0 +1,16 @@
+services:
+  frontend:
+    build:
+      context: ../app
+      dockerfile: Dockerfile
+    expose:
+      - "8080"
+
+  backend:
+    depends_on:
+      - frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
