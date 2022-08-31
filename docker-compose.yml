@@ -1,14 +1,14 @@
 services:
   frontend:
     build:
-      context: ../app
+      context: ./app
       dockerfile: Dockerfile
 
   backend:
     depends_on:
       - frontend
     build:
-      context: .
+      context: ./nginx
       dockerfile: Dockerfile
     ports:
       - "3000:80"
